@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Comprehensive NRI property management services in India. Learn how Nestopia Global supports overseas property owners with on-ground expertise." />
+    <title>India Services | Nestopia Global</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      :root { --ink:#112b24; --forest:#123c31; --cream:#f5f1e9; --orange:#df7140; --lime:#ccdf88; }
+      .header { background:rgba(245,241,233,.92); backdrop-filter:blur(14px); }
+      .page-hero { padding:105px 11vw 78px; background:var(--cream); }
+      .eyebrow { font:11px var(--mono); letter-spacing:.1em; text-transform:uppercase; margin:0 0 26px; display:flex; align-items:center; gap:9px; }
+      .eyebrow i { width:26px; height:1px; background:var(--orange); }
+      h1,h2,h3 { font:600 clamp(32px,4vw,64px)/.95 var(--serif); letter-spacing:-.06em; margin:0; }
+      h1 em,h2 em,h3 em { color:var(--orange); font-weight:500; }
+      .page-hero p { max-width:650px; margin:28px 0 0; color:#58645e; line-height:1.7; }
+      .services-content { padding:90px 11vw; background:#fffdf9; }
+      .intro-text { max-width:700px; color:#5d6963; line-height:1.8; font-size:17px; margin:0 0 68px; }
+      .services-detailed { display:grid; grid-template-columns:1fr; gap:68px; }
+      .service-article { padding:42px 0; border-bottom:1px solid #d5d0c5; }
+      .service-article:last-child { border-bottom:none; }
+      .service-header { display:grid; grid-template-columns:80px 1fr; gap:40px; align-items:start; margin-bottom:28px; }
+      .service-number { font:600 clamp(48px,6vw,68px)/.9 var(--serif); letter-spacing:-.05em; color:var(--orange); }
+      .service-title { font:600 clamp(32px,4vw,48px)/.95 var(--serif); margin:0; letter-spacing:-.04em; }
+      .service-description { max-width:720px; color:#5d6963; line-height:1.8; font-size:17px; margin:24px 0; }
+      .service-features { background:#f4f0e8; padding:28px; border-radius:4px; border-left:4px solid var(--orange); margin:24px 0; }
+      .feature-list { list-style:none; padding:0; margin:0; }
+      .feature-list li { color:#5d6963; line-height:1.7; padding:10px 0; padding-left:28px; position:relative; }
+      .feature-list li:before { content:'✓'; position:absolute; left:0; color:var(--orange); font-weight:600; font-size:18px; }
+      .use-case { background:#fff; padding:28px; margin:24px 0; border-radius:4px; border:1px solid #e0dbd2; }
+      .use-case-title { font:600 13px var(--mono); letter-spacing:.1em; text-transform:uppercase; color:var(--forest); margin-bottom:12px; font-weight:600; }
+      .use-case-content { color:#5d6963; line-height:1.75; }
+      .cta-section { padding:68px 11vw; background:var(--forest); color:#fff; text-align:center; }
+      .cta-section h2 { color:#fff; margin-bottom:24px; }
+      .cta-section p { max-width:600px; margin:0 auto 32px; color:#d5d0c5; font-size:18px; line-height:1.7; }
+      .button { border:0; padding:16px 19px; font:500 12px var(--sans); letter-spacing:.02em; display:inline-flex; gap:28px; align-items:center; background:var(--orange); color:#fff; transition:transform .2s,box-shadow .2s; }
+      .button:hover { transform:translate(-2px,-2px); box-shadow:4px 4px 0 rgba(255,255,255,.3); }
+      .button span { font-size:17px; }
+      footer { padding:18px 5vw; background:#102b24; color:#e7e5dc; font-size:12px; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:5vw; }
+      footer a { color:#fff; }
+      .footer-brand { display:flex; gap:9px; align-items:center; font:bold 15px/.8 var(--sans); letter-spacing:.09em; margin-bottom:16px; }
+      .brand-mark { width:31px; height:38px; display:grid; place-items:center; background:#e7e5dc; color:var(--forest); font:600 21px var(--serif); }
+      @media(max-width:820px) { .header{height:70px} .nav{position:absolute;display:none;top:70px;left:0;right:0;padding:25px 5vw;background:#f4f0e8;flex-direction:column;align-items:flex-start;gap:20px;border-bottom:1px solid #d5d0c5} .nav.open{display:flex} .menu-button{display:block;background:none;border:0;font:12px var(--sans);padding:10px} .service-header { grid-template-columns:1fr; } .service-number { font-size:42px; } .services-content, .cta-section { padding:60px 7vw; } footer { grid-template-columns:1fr; gap:28px; } }
+    </style>
+  </head>
+  <body>
+    <div class="notice"><span>Nestopia Global · India Services</span><span>•</span><a href="#contact">Talk to our India team</a></div>
+    <header class="header">
+      <a href="india.html" class="brand" aria-label="Nestopia Global home"><span class="brand-mark">N</span><span>NESTOPIA<br /><em>GLOBAL</em></span></a>
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">Menu <span></span></button>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="india.html">Home</a><a href="india.html#services">Services</a><a href="india.html#process">How it works</a><a href="#contact" class="nav-cta">Talk to us <span>↗</span></a>
+      </nav>
+    </header>
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow"><i aria-hidden="true"></i> Deep dive</p>
+        <h1>Our India <em>services</em></h1>
+        <p>Whether you own one flat in Chennai or a growing portfolio across India, these services are designed around the unique challenges of managing property from overseas.</p>
+      </section>
+      <section class="services-content">
+        <p class="intro-text">As an NRI (Non-Resident Indian), you understand the reality: property ownership from abroad requires more than a good property manager. It requires someone who understands local regulations, local culture, and the specific frustrations of distance. Here's how we solve for each.</p>
+
+        <div class="services-detailed">
+          <!-- SERVICE 1: PROPERTY MANAGEMENT -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">01</div>
+              <div>
+                <h2 class="service-title">Property Management</h2>
+              </div>
+            </div>
+            <p class="service-description">The foundation of reliable property ownership. We handle everything a property needs to stay in good condition, generate income, and stay compliant—without you having to coordinate multiple people or chase status updates.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Regular property checks</strong> — Monthly site visits, condition assessments, photo documentation</li>
+                <li><strong>Tenant communication</strong> — We're the first point of contact for tenant issues and day-to-day queries</li>
+                <li><strong>Rent collection and tracking</strong> — Ensuring rent arrives on schedule; we handle follow-up if payments are delayed</li>
+                <li><strong>Maintenance coordination</strong> — Identifying, authorizing, and overseeing repairs before they become emergencies</li>
+                <li><strong>Compliance management</strong> — Local tax filing, regulatory updates, and documentation maintenance</li>
+                <li><strong>Practical updates</strong> — Monthly reports with photos, rent received, any issues, and action taken</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">Your flat in Bangalore has been rented out, but rent payments are erratic. The previous manager disappeared, tenant enquiries go unanswered, and a plumbing issue has been ignored for weeks. You need one reliable person to take control, sort out the tenant relationship, coordinate repairs, and ensure consistent rent collection. That's property management.</div>
+            </div>
+          </article>
+
+          <!-- SERVICE 2: LETTING & TENANT SUPPORT -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">02</div>
+              <div>
+                <h2 class="service-title">Letting & Tenant Support</h2>
+              </div>
+            </div>
+            <p class="service-description">Finding the right tenant is harder from abroad. We handle the full letting process—from listing to onboarding—ensuring you get reliable, quality tenants and clear tenancy agreements that protect both sides.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Property listing coordination</strong> — Professional description, photography, and multi-platform promotion</li>
+                <li><strong>Tenant enquiry management</strong> — We screen, qualify, and coordinate viewings with interested tenants</li>
+                <li><strong>Verification and screening</strong> — Background checks, employment verification, previous landlord references</li>
+                <li><strong>Agreement preparation</strong> — Legally sound, locally compliant tenancy agreements drafted and explained</li>
+                <li><strong>Onboarding process</strong> — Move-in coordination, rent setup, utility connection support</li>
+                <li><strong>Ongoing tenant liaison</strong> — We remain the point of contact for tenant issues throughout the tenancy</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">Your property is vacant, rent is lost, and you can't spend hours coordinating with potential tenants across time zones. You need someone local to handle viewings, background checks, agreement drafting, and ongoing tenant communication. Letting support removes the friction.</div>
+            </div>
+          </article>
+
+          <!-- SERVICE 3: REPAIRS & UPKEEP -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">03</div>
+              <div>
+                <h2 class="service-title">Repairs & Upkeep</h2>
+              </div>
+            </div>
+            <p class="service-description">Small issues become big problems quickly. We coordinate with trusted local providers, prioritize urgent repairs, and keep you informed before costs spiral. Planned improvements are managed to maximize property value.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Issue identification</strong> — Monthly inspections catch problems early, before they worsen</li>
+                <li><strong>Vendor coordination</strong> — We work with pre-vetted, trusted local contractors for reliability</li>
+                <li><strong>Cost estimation</strong> — Multiple quotes provided; we recommend the best value option</li>
+                <li><strong>Authorization and approval</strong> — You approve before work begins; no surprises on invoices</li>
+                <li><strong>Work oversight</strong> — Photos before, during, and after; quality checks before payment</li>
+                <li><strong>Planned improvements</strong> — Kitchen upgrades, painting, electrical modernization—coordinated for maximum ROI</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">Your property needs painting, but you don't know how much it should cost or who to trust. Or the water heater failed and needs urgent replacement. Instead of googling contractors at 2 AM your time, we handle it: get quotes, approve the best option, oversee the work, and send you documentation. By next update, it's done.</div>
+            </div>
+          </article>
+
+          <!-- SERVICE 4: OWNER REPORTING -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">04</div>
+              <div>
+                <h2 class="service-title">Owner Reporting</h2>
+              </div>
+            </div>
+            <p class="service-description">You shouldn't have to piece together updates from different people. We give you one clear, visual window into your property's condition, occupancy, and trajectory.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Monthly property reports</strong> — Condition updates with current photos, occupancy status, maintenance needs</li>
+                <li><strong>Financial clarity</strong> — Rent received, expenses paid, net position for the month and year-to-date</li>
+                <li><strong>Issue tracking</strong> — Open action items, what was resolved, timeline for planned improvements</li>
+                <li><strong>Market insights</strong> — Local rental trends, property value assessment, suggestions for optimization</li>
+                <li><strong>Proactive alerts</strong> — Urgent issues flagged immediately; non-urgent updates in monthly summary</li>
+                <li><strong>Annual portfolio review</strong> — Detailed review of your property's performance and future strategy</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">You own two flats in India but get vague updates from different people. One manager says "everything's fine" but gives no details. You want clear, consistent reporting: Is the tenant still reliable? Are there issues brewing? How is the property appreciating? What improvements would increase value? Owner reporting gives you that single, clear picture.</div>
+            </div>
+          </article>
+
+          <!-- SERVICE 5: TRANSACTION GUIDANCE -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">05</div>
+              <div>
+                <h2 class="service-title">Transaction Guidance</h2>
+              </div>
+            </div>
+            <p class="service-description">Thinking about buying another property in India, or selling? We guide you through the decision, coordinate local professionals, and ensure you understand every step and cost involved.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Purchase guidance</strong> — Market analysis, location assessment, price negotiation support</li>
+                <li><strong>Due diligence coordination</strong> — Title verification, property inspection, compliance checks</li>
+                <li><strong>Sale process management</strong> — Market preparation, buyer screening, negotiation support</li>
+                <li><strong>Professional coordination</strong> — Liaise with solicitors, tax advisors, and local officials</li>
+                <li><strong>Documentation support</strong> — We explain legal documents, regulatory requirements, and tax implications</li>
+                <li><strong>Timeline and budget certainty</strong> — Clear timeline and cost breakdown so no surprises emerge</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">Your portfolio is performing well and you're considering buying a second property in Mumbai. But the transaction complexity is daunting—local regulations, tax implications, finding a property, verifying it. Or you've decided to sell your Chennai property but don't know the current market value or how to structure the sale. Transaction guidance means you have someone local managing the process and explaining every decision.</div>
+            </div>
+          </article>
+
+          <!-- SERVICE 6: DOCUMENTATION SUPPORT -->
+          <article class="service-article">
+            <div class="service-header">
+              <div class="service-number">06</div>
+              <div>
+                <h2 class="service-title">Documentation Support</h2>
+              </div>
+            </div>
+            <p class="service-description">Property ownership generates paperwork—deeds, tax forms, agreements, certificates. We organize and coordinate with professionals so you have a clear record and nothing gets lost.</p>
+            
+            <div class="service-features">
+              <ul class="feature-list">
+                <li><strong>Documentation organization</strong> — Property deed, ownership certificate, tax records, tenancy agreements kept organized and accessible</li>
+                <li><strong>Regulatory filing coordination</strong> — Tax returns, property tax filings, municipal compliance coordinated with appropriate professionals</li>
+                <li><strong>Lease and agreement management</strong> — Tenancy agreement copies, renewal tracking, terms and conditions documentation</li>
+                <li><strong>Professional coordination</strong> — We liaise with your accountant, tax advisor, and legal representatives as needed</li>
+                <li><strong>Handover documentation</strong> — If selling or transitioning to new management, complete documentation transfer</li>
+                <li><strong>Digital backup</strong> — Important documents backed up securely for your records</li>
+              </ul>
+            </div>
+
+            <div class="use-case">
+              <div class="use-case-title">When You Need This</div>
+              <div class="use-case-content">You own property in India but your documents are scattered—some with an old manager, some with your CA, some lost. When you need to sell or refinance, finding everything takes weeks. Documentation support means we have organized copies, we coordinate with tax professionals for filings, and critical documents are never lost. Compliance becomes effortless.</div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-section" id="contact">
+        <h2>Ready to outsource India property stress</h2>
+        <p>Pick one service or combine them—we'll work around your needs. The goal is the same: giving you reliable, professional support so your property works for you, not the other way around.</p>
+        <a class="button" href="https://calendly.com/nestopiahomes/30min" target="_blank" rel="noopener">Book a consultation <span>↗</span></a>
+      </section>
+    </main>
+    <footer>
+      <a href="india.html" class="footer-brand"><span class="brand-mark">N</span><span>NESTOPIA<br /><em>GLOBAL</em></span></a>
+      <div>
+        <p><strong>Nestopia Global Private Limited</strong><br />35/36 Railway Station Border Road<br />Kodambakkam, Chennai 600024<br />India</p>
+        <a href="mailto:info@nestopiahomes.com">info@nestopiahomes.com</a>
+      </div>
+      <div>
+        <p>© 2026 Nestopia Global Private Limited · Company registration U68100TN2026PTC197115</p>
+        <p><a href="india.html">Nestopia Global India</a></p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
