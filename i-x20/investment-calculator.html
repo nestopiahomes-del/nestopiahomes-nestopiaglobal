@@ -484,6 +484,16 @@
     .month-grid>div{padding:9px 7px;background:#f0f3ed;border-radius:2px;text-align:center}.month-grid span{display:block;font:600 8px "DM Mono",monospace;color:#657069}.month-grid strong{display:block;font-size:12px;margin:3px 0}.month-grid small{font-size:8px;color:#657069}
     .comps-table{font-size:8px!important}.comps-table th,.comps-table td{padding:6px 4px!important}.comps-table td:first-child{max-width:180px}.report-footnote{margin-top:18px;padding-top:12px;border-top:1px solid #d7ded6;color:#7a837d;font-size:8px;line-height:1.5}
     .closing-card{padding:34px;background:#173b2a;color:#fff;margin:50px 0 28px}.closing-kicker{font:600 9px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#b9c8be}.closing-card h2{color:#fff;font-size:40px;margin:8px 0 12px}.closing-card p{max-width:520px;color:#d8e2da;font-size:13px;line-height:1.7}.closing-quote{border-top:1px solid rgba(255,255,255,.25);margin-top:25px;padding-top:18px;font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.4}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;font-size:10px;line-height:1.6;color:#59635c}.contact-grid strong{color:#173b2a}.contact-line{display:flex;justify-content:space-between;border-top:1px solid #d7ded6;margin-top:26px;padding-top:12px;font:600 9px "DM Mono",monospace;letter-spacing:.04em;color:#24533c}.report-sheet .r-footer{position:absolute;left:62px;right:62px;bottom:42px;margin:0;padding-top:12px;border-top:1px solid #d9ddd6;color:#667069;font-size:8px;line-height:1.5}
+    .report-cover .report-intro{margin-top:34px;max-width:570px;font-size:13px;line-height:1.7}
+    .report-summary{padding-top:52px}
+    .report-summary .report-page-header{margin-bottom:20px}
+    .report-summary h2{font-size:32px;margin-bottom:14px}
+    .report-insight{margin:0 0 18px;padding:15px 18px;border-left:3px solid #24533c;background:#f0f3ed}
+    .report-insight span{display:block;margin-bottom:6px;font:600 8px "DM Mono",monospace;letter-spacing:.14em;color:#657069}
+    .report-insight p{margin:0;color:#24533c;font-family:"Playfair Display",Georgia,serif;font-size:17px;line-height:1.3}
+    .report-summary .report-metrics{margin:14px 0 22px!important}
+    .report-summary h3{margin-top:16px}
+    .report-summary .r-table td{padding:6px 0}
 
     @media(max-width:950px){
       .nav-links{gap:16px}
@@ -819,17 +829,17 @@
       <h1 id="reportTitle">Property deal analysis</h1>
       <p class="report-location" id="reportAddress">—</p>
       <div class="r-banner"><span class="banner-label">DEAL STRATEGY</span><strong id="reportStrategy">—</strong></div>
-      <div class="report-quote">“Whether you buy to rent, rent to rent, or rent to operate as a short-term rental, the strongest deals begin with clear numbers and thoughtful execution.”<span>— Nestopia</span></div>
       <div class="report-intro">
-        <p><strong>Buy-to-Rent · Rent-to-Rent · Rent-to-Rent-to-Short-Term-Rental</strong></p>
-        <p>This report brings together the deal assumptions, operating model and available STR market intelligence for the property entered into the Nestopia calculator.</p>
+        <p><strong>Prepared for considered property decisions.</strong></p>
+        <p>This tailored report sets out the core deal assumptions, projected returns and operating costs behind the opportunity you are exploring.</p>
       </div>
       <div class="report-company" id="reportCompany">Nestopia Homes Limited · Edinburgh, Scotland, UK · SC820930</div>
     </div>
 
-    <div class="report-page">
+    <div class="report-page report-summary">
       <div class="report-page-header"><span>NESTOPIA</span><span id="reportPageTitle">DEAL SUMMARY</span></div>
-      <h2>Executive deal summary</h2>
+      <div class="report-insight"><span>WHAT THIS REPORT GIVES YOU</span><p>“Clear numbers to help you question the deal, understand the return and choose your next move with confidence.”</p></div>
+      <h2>Your deal, at a glance</h2>
       <div class="r-grid report-metrics">
         <div class="r-metric dark"><small>Gross annual revenue</small><strong id="rGrossAnnual">—</strong></div>
         <div class="r-metric dark"><small>Net annual profit</small><strong id="rNetAnnual">—</strong></div>
@@ -866,39 +876,8 @@
       </div>
     </div>
 
-    <div class="report-page report-market-page">
-      <div class="report-page-header"><span>NESTOPIA</span><span>AIRROI MARKET SEARCH</span></div>
-      <h2>STR market intelligence</h2>
-      <p class="report-subtitle">A location-specific market search based on the property details supplied. The figures below are third-party AirROI estimates and comparable-listing data.</p>
-      <div class="market-report-meta"><span id="rMarketLocation">—</span><span id="rMarketSource">AirROI · native currency</span></div>
-      <div class="r-grid report-metrics">
-        <div class="r-metric"><small>Market ADR</small><strong id="rmAdr">—</strong></div>
-        <div class="r-metric"><small>Market occupancy</small><strong id="rmOcc">—</strong></div>
-        <div class="r-metric"><small>Market annual revenue</small><strong id="rmRevenue">—</strong></div>
-        <div class="r-metric"><small>Comparable listings</small><strong id="rmComps">—</strong></div>
-      </div>
-      <div class="market-percentiles" id="rPercentiles" hidden>
-        <h3>Market range</h3>
-        <table class="r-table percentile-table">
-          <tr><th>Measure</th><th>P25</th><th>P50</th><th>P75</th><th>P90</th></tr>
-          <tr><td>Annual revenue</td><td id="rpRev25">—</td><td id="rpRev50">—</td><td id="rpRev75">—</td><td id="rpRev90">—</td></tr>
-          <tr><td>ADR</td><td id="rpAdr25">—</td><td id="rpAdr50">—</td><td id="rpAdr75">—</td><td id="rpAdr90">—</td></tr>
-          <tr><td>Occupancy</td><td id="rpOcc25">—</td><td id="rpOcc50">—</td><td id="rpOcc75">—</td><td id="rpOcc90">—</td></tr>
-        </table>
-      </div>
-      <div class="seasonality" id="rSeasonality" hidden>
-        <h3>Indicative monthly revenue distribution</h3>
-        <div class="month-grid" id="monthGrid"></div>
-      </div>
-      <div class="comparables" id="rComparables" hidden>
-        <h3>Comparable listings used in the search</h3>
-        <table class="r-table comps-table"><thead><tr><th>Listing</th><th>Area</th><th>ADR</th><th>Occupancy</th><th>TTM revenue</th></tr></thead><tbody id="compRows"></tbody></table>
-      </div>
-      <div class="report-footnote">AirROI market data is indicative and does not constitute a valuation, guaranteed income forecast or investment advice. Availability, licensing, regulation, seasonality, pricing and property-specific factors can materially change actual performance.</div>
-    </div>
-
     <div class="report-page report-closing">
-      <div class="report-page-header"><span>NESTOPIA</span><span>IMPORTANT INFORMATION</span></div>
+      <div class="report-page-header"><span>NESTOPIA</span><span>YOUR NEXT STEP</span></div>
       <div class="closing-card">
         <div class="closing-kicker">A considered next step</div>
         <h2>Good deals start with good questions.</h2>
@@ -1262,45 +1241,6 @@
     setReportValue("rCleaning", $("outCleaning").textContent);
     setReportValue("rFixed", $("outFixed").textContent);
     setReportValue("rCash", $("cashRequired").textContent);
-    const d = airRoiData;
-    const hasMarket = d && typeof d === "object";
-    $("rMarketLocation").textContent = hasMarket && d.location?.latitude != null ? `${p.city} · ${Number(d.location.latitude).toFixed(4)}, ${Number(d.location.longitude).toFixed(4)}` : `${p.city} · Location search`;
-    $("rMarketSource").textContent = `AirROI · ${d?.currency || (marketForAirROI()==="native" ? currency.code : "USD")}`;
-    setReportValue("rmAdr", hasMarket && d.average_daily_rate != null ? money(d.average_daily_rate) : "Not returned");
-    setReportValue("rmOcc", hasMarket && d.occupancy != null ? percent(Number(d.occupancy)<=1?Number(d.occupancy)*100:Number(d.occupancy)) : "Not returned");
-    setReportValue("rmRevenue", hasMarket && d.revenue != null ? money(d.revenue) : "Not returned");
-    const comps = hasMarket && Array.isArray(d.comparable_listings) ? d.comparable_listings : [];
-    setReportValue("rmComps", comps.length ? String(comps.length) : "Not returned");
-
-    const pct = d?.percentiles || {};
-    const rp = pct.revenue || {}, ap = pct.average_daily_rate || {}, op = pct.occupancy || {};
-    const anyPct = [rp.p25,rp.p50,rp.p75,rp.p90,ap.p25,ap.p50,ap.p75,ap.p90,op.p25,op.p50,op.p75,op.p90].some(v=>v!=null);
-    $("rPercentiles").hidden = !anyPct;
-    if (anyPct) {
-      [25,50,75,90].forEach(k=>{ setReportValue(`rpRev${k}`, rp[`p${k}`]!=null?money(rp[`p${k}`]):"—"); setReportValue(`rpAdr${k}`, ap[`p${k}`]!=null?money(ap[`p${k}`]):"—"); setReportValue(`rpOcc${k}`, op[`p${k}`]!=null?percent(Number(op[`p${k}`])<=1?Number(op[`p${k}`])*100:Number(op[`p${k}`])):"—"); });
-    }
-    const monthly = Array.isArray(d?.monthly_revenue_distributions) ? d.monthly_revenue_distributions : [];
-    $("rSeasonality").hidden = monthly.length !== 12;
-    if (monthly.length === 12) {
-      const annual = Number(d.revenue) || 0;
-      $("monthGrid").innerHTML = monthly.map((v,i)=>`<div><span>${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][i]}</span><strong>${percent(Number(v)*100)}</strong><small>${money(annual*Number(v))}</small></div>`).join("");
-    }
-    $("rComparables").hidden = comps.length === 0;
-    if (comps.length) {
-      $("compRows").innerHTML = comps.slice(0,5).map(c=>{
-        const li=c.listing_info||{}, loc=c.location_info||{}, perf=c.performance_metrics||{};
-        const title=(li.listing_name||li.listing_type||"Comparable listing").slice(0,48);
-        const area=[loc.locality,loc.region].filter(Boolean).join(", ")||"—";
-        const adr=perf.ttm_avg_rate!=null?money(perf.ttm_avg_rate):"—";
-        const occ=perf.ttm_occupancy!=null?percent(Number(perf.ttm_occupancy)<=1?Number(perf.ttm_occupancy)*100:Number(perf.ttm_occupancy)):"—";
-        const rev=perf.ttm_revenue!=null?money(perf.ttm_revenue):"—";
-        return `<tr><td>${escapeHtml(title)}</td><td>${escapeHtml(area)}</td><td>${adr}</td><td>${occ}</td><td>${rev}</td></tr>`;
-      }).join("");
-    }
-  }
-
-  function escapeHtml(value) {
-    return String(value ?? "").replace(/[&<>'"]/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[ch]));
   }
 
   async function saveLead() {
