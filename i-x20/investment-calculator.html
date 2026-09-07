@@ -1366,32 +1366,24 @@
     try {
       if (typeof html2pdf === "undefined") throw new Error("The PDF generator could not be loaded. Please try again.");
       const element = $("reportSheet");
-      element.setAttribute("aria-hidden", "false");
       const filename = reportFilename();
-      const clone = element.cloneNode(true);
-      clone.id = "reportPdfClone";
-      clone.setAttribute("aria-hidden", "false");
-      clone.style.cssText = "position:fixed;left:0;top:0;width:794px;opacity:1;visibility:visible;display:block;z-index:999999;background:#fffdf8;pointer-events:none;";
-      document.body.appendChild(clone);
-      await new Promise(resolve => setTimeout(resolve, 500));
+
+      // html2pdf wraps its source in a temporary container before rasterising it.
+      // A fixed/absolute source is out of that container's normal flow, leaving
+      // it with zero height and producing a blank PDF. Use an in-flow detached
+      // copy; html2pdf attaches its own copy to the document for rendering.
+      const exportSource = element.cloneNode(true);
+      exportSource.id = "reportPdfSource";
+      exportSource.removeAttribute("aria-hidden");
+      exportSource.style.cssText = "position:static!important;left:auto!important;top:auto!important;width:794px!important;margin:0!important;padding:0!important;z-index:auto!important;background:#fffdf8!important;";
       await html2pdf().set({
-  margin: 0,
-  filename,
-  image: { type: "jpeg", quality: 0.98 },
-  html2canvas: {
-    scale: 1,
-    backgroundColor: "#fffdf8",
-    useCORS: true,
-    logging: true
-  },
-  jsPDF: {
-    unit: "mm",
-    format: "a4",
-    orientation: "portrait"
-  }
-}).from(clone).save();
-      clone.remove();
-      element.setAttribute("aria-hidden", "true");
+        margin: 0,
+        filename,
+        image: {type:"jpeg", quality:.98},
+        html2canvas: {scale:2, backgroundColor:"#fffdf8", useCORS:true, logging:false},
+        jsPDF: {unit:"mm", format:"a4", orientation:"portrait"},
+        pagebreak: {mode:["css","legacy"]}
+      }).from(exportSource).save();
 
       $("reportStatus").className = "report-status success";
       $("reportStatus").textContent = leadResult.stored
