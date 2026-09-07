@@ -1,70 +1,91 @@
-# Nestopia Property Deal Calculator — lead capture + report
+# Nestopia Property Deal Calculator — deployment & lead storage
 
-## 1. AirROI error fix
-The old frontend assumed every `/api/airroi-estimate` response was JSON. If the route was missing or returned an empty/non-JSON response, the browser showed:
-"Failed to execute 'json' on 'Response': Unexpected end of JSON input".
+## What changed
 
-This version reads the response as text first and reports a clean HTTP/service error.
+- Branded A4 PDF report with a Nestopia-style cover, executive summary, AirROI market search, comparable listings, seasonality and closing/contact page.
+- Report filename format:
+  `Nestopia Homes - [City] - [Street] - [bedrooms]/[bathrooms].pdf`
+- UK reports use Nestopia Homes / GBP; India reports use Nestopia Global / INR. The calculator can auto-detect from the address or you can select the market.
+- The homepage calculator CTA now takes visitors directly to the report form to encourage lead capture.
+- After submission, the UI shows a professional confirmation note.
+- Added `/api/health` so you can quickly verify that Cloudflare Pages Functions are actually deployed.
+- AirROI errors now distinguish a missing/deployed endpoint (404) from an upstream AirROI problem.
 
-It also includes a proper Cloudflare Pages Function:
-`functions/api/airroi-estimate.js`
+## Where leads are stored
 
-Set the Cloudflare secret:
-`AIRROI_API_KEY`
+The intended production flow is:
 
-Cloudflare Pages Functions use file-based routes, so `functions/api/airroi-estimate.js` maps to `/api/airroi-estimate`.
+**Visitor → Nestopia calculator → `/api/lead` (Cloudflare Pages Function) → Google Apps Script Web App → Google Sheet (`Leads` tab).**
 
-## 2. Lead capture + PDF
-The calculator now has a required lead form:
-- Full name *
-- Email *
-- Contact number *
-- I am a… * (Investor, Landlord, Tenant, Existing client, Property owner, Property professional, Other)
-- Required consent *
+The Google Sheet is the lead register. It stores the visitor's contact details plus the selected brand/currency, strategy, property details, calculation outputs, AirROI summary values and report filename.
 
-After submission, the site generates a branded PDF report using the Nestopia template.
+## Google Sheet setup
 
-The report includes:
-- Strategy
-- Property location
-- Bedrooms / bathrooms / guests
-- ADR / occupancy / occupied nights
-- Gross annual revenue
-- Net annual profit
-- Monthly revenue / profit
-- Return
-- Break-even occupancy
-- Rent and operating costs
-- Initial cash required
-
-The report is generated in the visitor's browser; no calculator data needs to be sent to a PDF server.
-
-## 3. Google Sheets lead storage
-`google-apps-script.gs` is a ready-to-deploy Google Apps Script `doPost` endpoint.
-
-Recommended architecture:
-Browser -> Cloudflare Pages Function `/api/lead` -> Google Apps Script -> Google Sheet
-
-This keeps the Google webhook URL out of the frontend and gives you one place to validate incoming leads.
-
-Configure the Cloudflare secret:
-`LEAD_SHEET_WEBHOOK_URL`
-
-### Google Apps Script setup
-1. Create a Google Sheet for Nestopia leads.
-2. Open Extensions -> Apps Script.
+1. Create a Google Sheet, for example `Nestopia Property Leads`.
+2. Open **Extensions → Apps Script**.
 3. Paste `google-apps-script.gs`.
-4. Save.
-5. Deploy -> New deployment -> Web app.
-6. Execute as the account that owns the sheet.
-7. Allow the web app to be accessible to your intended callers.
-8. Copy the `/exec` URL.
-9. Add it as the Cloudflare secret `LEAD_SHEET_WEBHOOK_URL`.
+4. Save the project.
+5. Select **Deploy → New deployment → Web app**.
+6. Execute the web app as the Google account that owns the Sheet.
+7. Set access so the web app can receive requests from your website.
+8. Copy the deployed `/exec` URL.
+9. In Cloudflare Pages, add that URL as the secret/environment variable:
+   `LEAD_SHEET_WEBHOOK_URL`
+10. Redeploy the site.
 
-Google Apps Script web apps support `doPost` and can write to Sheets. The Apps Script `appendRow` method appends the captured lead to the sheet.
+The script creates a `Leads` sheet automatically if it does not exist.
+
+## Cloudflare Pages Functions placement
+
+The repository root must contain:
+
+```text
+functions/
+└── api/
+    ├── airroi-estimate.js
+    ├── health.js
+    └── lead.js
+```
+
+These map to:
+
+- `/api/airroi-estimate`
+- `/api/health`
+- `/api/lead`
+
+Do not upload the `functions` folder inside `assets`, `js`, `public`, or the calculator page folder.
+
+## Cloudflare secrets
+
+Add these in the Pages project's environment variables/secrets for the environment you deploy to:
+
+- `AIRROI_API_KEY` — your AirROI API key
+- `LEAD_SHEET_WEBHOOK_URL` — the Google Apps Script `/exec` URL
+
+Never put the AirROI API key in `investment-calculator.html` or any browser JavaScript.
+
+## Quick deployment test
+
+After a successful Pages deployment, open:
+
+`https://YOUR-DOMAIN/api/health`
+
+You should receive JSON similar to:
+
+```json
+{"ok":true,"service":"Nestopia Pages Functions","airroiConfigured":true,"leadStorageConfigured":true}
+```
+
+If `/api/health` returns **404**, the problem is Cloudflare Pages deployment/routing, not the AirROI API request. In that case, make sure the Git-connected Pages project is deploying the repository that contains the root-level `functions` folder.
+
+## Important: Direct Upload vs Git deployment
+
+Cloudflare Pages Functions are designed to deploy with the Pages project/Git workflow. If you use a static/direct upload method that only uploads site assets, the `functions` directory will not become an API route.
+
+## Report generation
+
+The PDF is generated in the visitor's browser. It does not send the report to a PDF server. The lead is submitted before the report is generated, and the report includes AirROI data if the visitor has successfully run the market search.
 
 ## Privacy
-Because this collects personal information, keep the required consent/notice clear and publish Nestopia's privacy information. Consider adding an optional, separate marketing-consent checkbox if you intend to send marketing communications.
 
-## Important deployment note
-The current site is static/Cloudflare-hosted. Pages Functions need to be deployed through the Git/Pages build workflow; a direct static upload does not deploy the `/functions` directory.
+The calculator collects personal information. Keep the consent wording visible and publish the site's privacy information. If you later want marketing communications, use a separate optional marketing-consent checkbox rather than treating the report consent as marketing consent.
