@@ -494,6 +494,20 @@
     .report-summary .report-metrics{margin:14px 0 22px!important}
     .report-summary h3{margin-top:16px}
     .report-summary .r-table td{padding:6px 0}
+    .report-page{height:1123px;min-height:0;page-break-after:auto;break-after:auto}
+    .report-cover{background:#173b2a;color:#fff;padding:68px 62px 56px}
+    .report-cover .report-brand,.report-cover .r-eyebrow,.report-cover h1,.report-cover .report-location{color:#fff}
+    .report-cover .report-type{color:#c9d8ce}.report-cover .report-rule{background:rgba(255,255,255,.28);margin:26px 0 56px}
+    .report-cover .report-mark{background:#fff;color:#173b2a}.report-cover .r-eyebrow{opacity:.72}
+    .report-cover h1{max-width:570px;font-size:58px;margin-top:15px}.report-cover .report-location{opacity:.8}
+    .cover-kicker{position:absolute;left:62px;right:62px;bottom:68px;padding-top:18px;border-top:1px solid rgba(255,255,255,.3);font-size:12px;line-height:1.65;color:#d8e4dc}
+    .cover-kicker strong{display:block;margin-bottom:5px;color:#fff;font:600 9px "DM Mono",monospace;letter-spacing:.14em}.cover-kicker span{display:block;margin-top:14px;font:600 9px "DM Mono",monospace;letter-spacing:.08em;color:#b9c8be}
+    .report-overview,.report-details{padding-top:58px}.booklet-page-number{font:600 9px "DM Mono",monospace;letter-spacing:.14em;color:#657069;margin:0 0 30px}.booklet-page-number span{color:#24533c}
+    .booklet-quote{max-width:580px;margin:0 0 42px;font-family:"Playfair Display",Georgia,serif;font-size:34px;line-height:1.18;color:#24533c}.booklet-quote span{display:block;margin-top:15px;font:600 9px "DM Mono",monospace;letter-spacing:.12em;color:#7a837d}
+    .report-overview h2,.report-details h2{font-size:38px;margin-bottom:18px}.report-overview .r-grid{grid-template-columns:repeat(3,1fr);gap:10px}.report-overview .r-metric{min-height:82px;padding:16px}.report-overview .r-metric strong{font-size:20px}
+    .report-context{margin-top:32px;padding:18px 20px;background:#f0f3ed;border-left:3px solid #24533c;font-size:13px;line-height:1.65;color:#59635c}.report-context strong{color:#173b2a}
+    .report-details .report-two-col{gap:42px}.report-details h3{margin:0 0 8px;font-size:14px}.report-details .r-table{font-size:11px;margin-top:0}.report-details .r-table td{padding:9px 0}
+    .report-closing{background:#f0f3ed;padding-top:58px}.report-closing .report-page-header{margin-bottom:58px}.report-closing .closing-card{margin:0 0 32px;padding:42px}.report-closing .contact-grid{font-size:11px}.report-closing .contact-line{margin-top:32px}.report-closing .r-footer{bottom:45px}
 
     @media(max-width:950px){
       .nav-links{gap:16px}
@@ -822,32 +836,33 @@
     <div class="report-page report-cover">
       <div class="report-topline">
         <div class="report-brand"><span class="report-mark">N</span><span>NESTOPIA<br><em id="reportBrandSub">HOMES</em></span></div>
-        <div class="report-type">PROPERTY DEAL REPORT<br><span id="reportDate">—</span></div>
+        <div class="report-type">PRIVATE CLIENT BRIEF<br><span id="reportDate">—</span></div>
       </div>
       <div class="report-rule"></div>
-      <div class="r-eyebrow" id="reportEyebrow">Nestopia Homes · Property intelligence</div>
-      <h1 id="reportTitle">Property deal analysis</h1>
+      <div class="r-eyebrow" id="reportEyebrow">Nestopia Homes · investment brief</div>
+      <h1 id="reportTitle">Your property opportunity</h1>
       <p class="report-location" id="reportAddress">—</p>
-      <div class="r-banner"><span class="banner-label">DEAL STRATEGY</span><strong id="reportStrategy">—</strong></div>
-      <div class="report-intro">
-        <p><strong>Prepared for considered property decisions.</strong></p>
-        <p>This tailored report sets out the core deal assumptions, projected returns and operating costs behind the opportunity you are exploring.</p>
-      </div>
-      <div class="report-company" id="reportCompany">Nestopia Homes Limited · Edinburgh, Scotland, UK · SC820930</div>
+      <div class="cover-kicker"><strong>THE OPPORTUNITY</strong><span id="reportStrategy">—</span><span id="reportCompany">Nestopia Homes Limited · Edinburgh, Scotland, UK · SC820930</span></div>
     </div>
 
-    <div class="report-page report-summary">
-      <div class="report-page-header"><span>NESTOPIA</span><span id="reportPageTitle">DEAL SUMMARY</span></div>
-      <div class="report-insight"><span>WHAT THIS REPORT GIVES YOU</span><p>“Clear numbers to help you question the deal, understand the return and choose your next move with confidence.”</p></div>
-      <h2>Your deal, at a glance</h2>
+    <div class="report-page report-overview">
+      <p class="booklet-page-number"><span>01</span> / THE OPPORTUNITY</p>
+      <p class="booklet-quote">“A clear investment decision starts with understanding both the return and the assumptions behind it.”<span>— NESTOPIA</span></p>
+      <h2>Your projected return</h2>
       <div class="r-grid report-metrics">
         <div class="r-metric dark"><small>Gross annual revenue</small><strong id="rGrossAnnual">—</strong></div>
         <div class="r-metric dark"><small>Net annual profit</small><strong id="rNetAnnual">—</strong></div>
+        <div class="r-metric dark"><small id="rReturnLabel">Net yield</small><strong id="rReturn">—</strong></div>
         <div class="r-metric"><small>Monthly revenue</small><strong id="rGrossMonthly">—</strong></div>
         <div class="r-metric"><small>Monthly profit</small><strong id="rNetMonthly">—</strong></div>
-        <div class="r-metric"><small id="rReturnLabel">Net yield</small><strong id="rReturn">—</strong></div>
         <div class="r-metric"><small>Break-even occupancy</small><strong id="rBreakEven">—</strong></div>
       </div>
+      <div class="report-context"><strong>How to read this brief.</strong> These figures are a practical working model built from the assumptions you provided. Use them to test the opportunity, identify questions for the seller or landlord, and decide what needs to be validated next.</div>
+    </div>
+
+    <div class="report-page report-details">
+      <p class="booklet-page-number"><span>02</span> / YOUR WORKING NUMBERS</p>
+      <h2>The assumptions behind the return</h2>
       <div class="report-two-col">
         <div>
           <h3>Property profile</h3>
@@ -877,12 +892,12 @@
     </div>
 
     <div class="report-page report-closing">
-      <div class="report-page-header"><span>NESTOPIA</span><span>YOUR NEXT STEP</span></div>
+      <div class="report-page-header"><span>NESTOPIA</span><span>03 / YOUR NEXT STEP</span></div>
       <div class="closing-card">
-        <div class="closing-kicker">A considered next step</div>
-        <h2>Good deals start with good questions.</h2>
-        <p>Use this analysis to challenge the assumptions, understand the downside, and decide what needs to be verified before you commit to the property.</p>
-        <div class="closing-quote">“Structure the deal carefully. Operate it thoughtfully. Let the numbers earn your confidence.”</div>
+        <div class="closing-kicker">TURN INSIGHT INTO ACTION</div>
+        <h2>Let’s make the next decision the right one.</h2>
+        <p>Bring this brief to a conversation with us. We will help you challenge the assumptions, understand the risks and map out the practical next steps before you commit.</p>
+        <div class="closing-quote">“The best property decisions are carefully tested before they are confidently made.”</div>
       </div>
       <div class="contact-grid">
         <div><strong id="rCompanyName">Nestopia Homes Limited</strong><br><span id="rCompanyAddress">Office 581, Unit LGE, 18 Young Street, Edinburgh, EH2 4JB, Scotland, UK</span></div>
@@ -983,9 +998,9 @@
     if (!$("reportTitle")) return;
     const p = addressParts();
     const isIndia = currency.code === "INR";
-    $("reportTitle").textContent = `${isIndia ? "Nestopia Global" : "Nestopia Homes"} — ${p.city}`;
+    $("reportTitle").textContent = `Property opportunity in ${p.city}`;
     $("reportBrandSub").textContent = isIndia ? "GLOBAL" : "HOMES";
-    $("reportEyebrow").textContent = isIndia ? "Nestopia Global · Property intelligence" : "Nestopia Homes · Property intelligence";
+    $("reportEyebrow").textContent = isIndia ? "Nestopia Global · Private client brief" : "Nestopia Homes · Private client brief";
     $("reportCompany").textContent = isIndia
       ? "Nestopia Global Private Limited · Chennai, India"
       : "Nestopia Homes Limited · Edinburgh, Scotland, UK · SC820930";
@@ -1322,7 +1337,7 @@
         image: {type:"jpeg", quality:.98},
         html2canvas: {scale:2, backgroundColor:"#fffdf8", useCORS:true, logging:false},
         jsPDF: {unit:"mm", format:"a4", orientation:"portrait"},
-        pagebreak: {mode:["css","legacy"]}
+        pagebreak: {mode:[]}
       }).from(exportSource).save();
 
       $("reportStatus").className = "report-status success";
