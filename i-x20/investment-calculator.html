@@ -441,7 +441,7 @@
     .lead-storage-note strong{display:block;color:var(--forest);margin-bottom:2px}
     .submission-note{margin-top:10px;padding:12px 14px;border-radius:10px;background:#eaf3eb;border:1px solid #cfe0d2;color:#24533c;font-size:11px;line-height:1.5}
     .submission-note strong{display:block;margin-bottom:2px}
-    .report-sheet{position:absolute;left:-100000px;top:0;width:794px;background:#fffdf8;color:#18231d;font-family:"DM Sans",Arial,sans-serif;box-sizing:border-box}
+    .report-sheet{position:fixed;left:-100000px;top:0;width:794px;background:#fffdf8;color:#18231d;font-family:"DM Sans",Arial,sans-serif;box-sizing:border-box;visibility:hidden;pointer-events:none}
     .report-page{box-sizing:border-box;width:794px;min-height:1123px;padding:58px 62px 50px;position:relative;page-break-after:always;break-after:page;overflow:hidden;background:#fffdf8}
     .report-page:last-child{page-break-after:auto;break-after:auto}
     .report-topline{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
@@ -484,6 +484,20 @@
     .month-grid>div{padding:9px 7px;background:#f0f3ed;border-radius:2px;text-align:center}.month-grid span{display:block;font:600 8px "DM Mono",monospace;color:#657069}.month-grid strong{display:block;font-size:12px;margin:3px 0}.month-grid small{font-size:8px;color:#657069}
     .comps-table{font-size:8px!important}.comps-table th,.comps-table td{padding:6px 4px!important}.comps-table td:first-child{max-width:180px}.report-footnote{margin-top:18px;padding-top:12px;border-top:1px solid #d7ded6;color:#7a837d;font-size:8px;line-height:1.5}
     .closing-card{padding:34px;background:#173b2a;color:#fff;margin:50px 0 28px}.closing-kicker{font:600 9px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#b9c8be}.closing-card h2{color:#fff;font-size:40px;margin:8px 0 12px}.closing-card p{max-width:520px;color:#d8e2da;font-size:13px;line-height:1.7}.closing-quote{border-top:1px solid rgba(255,255,255,.25);margin-top:25px;padding-top:18px;font-family:"Playfair Display",Georgia,serif;font-size:19px;line-height:1.4}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;font-size:10px;line-height:1.6;color:#59635c}.contact-grid strong{color:#173b2a}.contact-line{display:flex;justify-content:space-between;border-top:1px solid #d7ded6;margin-top:26px;padding-top:12px;font:600 9px "DM Mono",monospace;letter-spacing:.04em;color:#24533c}.report-sheet .r-footer{position:absolute;left:62px;right:62px;bottom:42px;margin:0;padding-top:12px;border-top:1px solid #d9ddd6;color:#667069;font-size:8px;line-height:1.5}
+    /* PDF capture mode: keep the report fully inside the viewport while html2canvas renders it. */
+    body.pdf-capturing .report-sheet{
+      left:0!important; top:0!important; visibility:visible!important; z-index:2147483647!important;
+    }
+    body.pdf-capturing{overflow:hidden!important}
+    .report-id-line{margin:0 0 24px;font:600 10px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:#657069}
+    .report-brand-details{margin-top:18px;padding:13px 16px;background:#f0f3ed;border-left:3px solid #24533c;font-size:10px;line-height:1.55;color:#59635c}
+    .report-brand-details strong{color:#173b2a}
+    .report-sheet .r-table th{padding-bottom:7px}
+    @media print{
+      .report-sheet{position:static!important;left:auto!important;visibility:visible!important}
+      .report-page{page-break-after:always!important}
+    }
+
 
     @media(max-width:950px){
       .nav-links{gap:16px}
@@ -760,7 +774,7 @@
           <div class="report-cta">
             <h3>Get your Nestopia deal report</h3>
             <p>Enter your details to receive a professionally formatted Nestopia deal report with the calculation and AirROI market search. Fields marked <span class="required">*</span> are required.</p>
-            <div class="lead-storage-note"><strong>Your details are protected.</strong> Once submitted, your enquiry is sent through Nestopia's secure website endpoint to the Nestopia lead register in Google Sheets. We only use it to provide the report and respond to your enquiry.</div>
+            <div class="lead-storage-note"><strong>Your details are protected.</strong> Once submitted, your enquiry is sent through Nestopia's secure website endpoint to the Nestopia lead register in Google Sheets (when the site administrator has connected the lead webhook). We only use it to provide the report and respond to your enquiry.</div>
             <form class="report-form" id="reportForm">
               <div class="form-row">
                 <div>
@@ -818,8 +832,9 @@
       <div class="r-eyebrow" id="reportEyebrow">Nestopia Homes · Property intelligence</div>
       <h1 id="reportTitle">Property deal analysis</h1>
       <p class="report-location" id="reportAddress">—</p>
+      <p class="report-id-line" id="reportIdLine">PROPERTY FILE · —</p>
       <div class="r-banner"><span class="banner-label">DEAL STRATEGY</span><strong id="reportStrategy">—</strong></div>
-      <div class="report-quote">“Whether you buy to rent, rent to rent, or rent to operate as a short-term rental, the strongest deals begin with clear numbers and thoughtful execution.”<span>— Nestopia</span></div>
+      <div class="report-quote">“The right property is not simply found. It is understood, structured and operated with purpose.”<span>— Nestopia</span></div>
       <div class="report-intro">
         <p><strong>Buy-to-Rent · Rent-to-Rent · Rent-to-Rent-to-Short-Term-Rental</strong></p>
         <p>This report brings together the deal assumptions, operating model and available STR market intelligence for the property entered into the Nestopia calculator.</p>
@@ -910,6 +925,7 @@
         <div><strong>Nestopia Global Private Limited</strong><br>35/36 Railway Station Border Road, Kodambakkam, Chennai 600024, India</div>
       </div>
       <div class="contact-line"><span>info@nestopiahomes.com</span><span>nestopiahomes.com</span></div>
+      <div class="report-brand-details" id="reportBrandDetails"><strong>Nestopia</strong> · Property management · Buy-to-Rent · Rent-to-Rent · Rent-to-Rent-to-Short-Term-Rental · Investment analysis</div>
       <div class="r-footer">Prepared by Nestopia Homes / Nestopia Global. This document is a property analysis tool and not a valuation, financial or tax recommendation, legal advice, guaranteed income forecast or promise of STR performance.</div>
     </div>
   </section>
@@ -994,18 +1010,21 @@
 
   function reportFilename() {
     const p = addressParts();
-    const clean = x => x.replace(/[^a-z0-9]+/gi, " ").trim();
+    const clean = x => x.replace(/[^a-z0-9]+/gi, " ").replace(/\\s+/g, " ").trim();
     const bedrooms = $("bedrooms").value || "0";
     const baths = $("baths").value || "0";
-    return `Nestopia Homes - ${clean(p.city)} - ${clean(p.street)} - ${bedrooms}/${baths}.pdf`;
+    // Slashes are path separators on Windows/macOS, so use a safe filename separator.
+    return `${currency.code === "INR" ? "Nestopia Global" : "Nestopia Homes"} - ${clean(p.city)} - ${clean(p.street)} - ${bedrooms}-${baths}.pdf`;
   }
 
   function updateReportIdentity() {
     if (!$("reportTitle")) return;
     const p = addressParts();
     const isIndia = currency.code === "INR";
-    $("reportTitle").textContent = `${isIndia ? "Nestopia Global" : "Nestopia Homes"} — ${p.city}`;
+    const brandName = isIndia ? "Nestopia Global" : "Nestopia Homes";
+    $("reportTitle").textContent = `${brandName} — ${p.city}`;
     $("reportBrandSub").textContent = isIndia ? "GLOBAL" : "HOMES";
+    if ($("reportIdLine")) $("reportIdLine").textContent = `PROPERTY FILE · ${p.city} · ${p.street} · ${$("bedrooms").value || "0"} / ${$("baths").value || "0"}`;
     $("reportEyebrow").textContent = isIndia ? "Nestopia Global · Property intelligence" : "Nestopia Homes · Property intelligence";
     $("reportCompany").textContent = isIndia
       ? "Nestopia Global Private Limited · Chennai, India"
@@ -1241,6 +1260,7 @@
     setReportValue("reportDate", new Date().toLocaleDateString(currency.locale, {day:"2-digit", month:"long", year:"numeric"}));
     setReportValue("reportStrategy", strategy);
     setReportValue("reportAddress", p.full);
+    setReportValue("reportIdLine", `PROPERTY FILE · ${p.city} · ${p.street} · ${$("bedrooms").value || "0"} / ${$("baths").value || "0"}`);
     setReportValue("rGrossAnnual", $("grossAnnual").textContent);
     setReportValue("rNetAnnual", $("netAnnual").textContent);
     setReportValue("rGrossMonthly", $("grossMonthly").textContent);
@@ -1363,26 +1383,63 @@
     populateReport();
     const leadResult = await saveLead();
 
+    let clone = null;
     try {
-      if (typeof html2pdf === "undefined") throw new Error("The PDF generator could not be loaded. Please try again.");
-      const element = $("reportSheet");
-      element.setAttribute("aria-hidden", "false");
-      const filename = reportFilename();
-      const clone = element.cloneNode(true);
+      if (typeof html2pdf === "undefined") {
+        throw new Error("The PDF generator could not be loaded. Please refresh the page and try again.");
+      }
+
+      const source = $("reportSheet");
+      clone = source.cloneNode(true);
       clone.id = "reportPdfClone";
       clone.setAttribute("aria-hidden", "false");
-      clone.style.cssText = "position:absolute;left:0;top:0;width:794px;opacity:1;z-index:-1;background:#fffdf8;";
+
+      // IMPORTANT: html2canvas cannot reliably render elements positioned far outside
+      // the viewport. Put the PDF copy at the top-left of the viewport while capturing.
+      clone.style.cssText = [
+        "position:fixed",
+        "left:0",
+        "top:0",
+        "width:794px",
+        "height:auto",
+        "visibility:visible",
+        "opacity:1",
+        "display:block",
+        "z-index:2147483647",
+        "pointer-events:none",
+        "background:#fffdf8",
+        "margin:0"
+      ].join(";");
+
+      document.body.classList.add("pdf-capturing");
       document.body.appendChild(clone);
+
+      // Give the browser a paint cycle so web fonts/layout are resolved before capture.
+      if (document.fonts && document.fonts.ready) {
+        try { await document.fonts.ready; } catch (_) {}
+      }
+      await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+
+      const filename = reportFilename();
+
       await html2pdf().set({
         margin: 0,
         filename,
-        image: {type:"jpeg", quality:.98},
-        html2canvas: {scale:2, backgroundColor:"#fffdf8", useCORS:true, logging:false, scrollX:0, scrollY:0, windowWidth:794},
-        jsPDF: {unit:"mm", format:"a4", orientation:"portrait"},
+        image: {type:"jpeg", quality:0.96},
+        html2canvas: {
+          scale: 1.6,
+          backgroundColor: "#fffdf8",
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: 794,
+          windowHeight: Math.max(document.documentElement.clientHeight, 5000)
+        },
+        jsPDF: {unit:"mm", format:"a4", orientation:"portrait", compress:true},
         pagebreak: {mode:["css","legacy"]}
       }).from(clone).save();
-      clone.remove();
-      element.setAttribute("aria-hidden", "true");
 
       $("reportStatus").className = "report-status success";
       $("reportStatus").textContent = leadResult.stored
@@ -1391,15 +1448,17 @@
       $("submissionNote").hidden = false;
       $("submissionNote").querySelector("strong").textContent = leadResult.stored
         ? "Thank you — your property enquiry has been received."
-        : "Thank you — your report is ready.";
+        : "Thank you — your Nestopia report is ready.";
       $("submissionNote").querySelector("span").textContent = leadResult.stored
-        ? "Your enquiry has been securely recorded. Keep the PDF for your records and use it as a starting point for your next property discussion."
-        : "The PDF has been prepared successfully. The website lead register still needs to be connected by the site administrator.";
+        ? "Your enquiry has been securely recorded. Your branded property analysis is ready to keep for your records and discuss with the Nestopia team."
+        : "Your branded property analysis has been prepared successfully. The website lead register still needs to be connected by the site administrator.";
     } catch (error) {
       $("reportStatus").className = "report-status error";
       $("reportStatus").textContent = error.message || "Could not generate the PDF.";
       $("submissionNote").hidden = true;
     } finally {
+      if (clone) clone.remove();
+      document.body.classList.remove("pdf-capturing");
       $("downloadReport").disabled = false;
       $("downloadReport").textContent = "Download my Nestopia report";
     }
