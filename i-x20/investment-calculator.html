@@ -1373,6 +1373,7 @@
       clone.setAttribute("aria-hidden", "false");
       clone.style.cssText = "position:fixed;left:0;top:0;width:794px;opacity:1;visibility:visible;display:block;z-index:999999;background:#fffdf8;pointer-events:none;";
       document.body.appendChild(clone);
+      await new Promise(resolve => setTimeout(resolve, 500));
       await html2pdf().set({
   margin: 0,
   filename,
