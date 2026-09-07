@@ -1371,7 +1371,7 @@
       const clone = element.cloneNode(true);
       clone.id = "reportPdfClone";
       clone.setAttribute("aria-hidden", "false");
-      clone.style.cssText = "position:absolute;left:0;top:0;width:794px;opacity:1;z-index:-1;background:#fffdf8;";
+      clone.style.cssText = "position:fixed;left:0;top:0;width:794px;opacity:1;visibility:visible;display:block;z-index:999999;background:#fffdf8;pointer-events:none;";
       document.body.appendChild(clone);
       await html2pdf().set({
         margin: 0,
