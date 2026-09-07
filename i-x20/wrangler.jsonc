@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "nestopiahomes",
+ "name": "nhl-ngpl",
   "main": "./worker.js",
   "compatibility_date": "2026-09-07",
   "assets": {
