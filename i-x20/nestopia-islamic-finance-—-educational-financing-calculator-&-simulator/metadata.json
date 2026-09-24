@@ -1,0 +1,8 @@
+{
+  "name": "Nestopia Islamic Finance — Educational Financing Calculator & Simulator",
+  "description": "Interactive educational platform and financial simulator for Murabahah, Musharakah, Diminishing Musharakah, and Ijarah property financing for UK and India.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
